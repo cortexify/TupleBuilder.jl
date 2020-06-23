@@ -1,0 +1,4 @@
+name = "TupleBuilder"
+uuid = "480da51c-1e75-4d21-b48c-d32c872aee71"
+authors = ["Ayhan Alkan <ayhan@ayhanalkan.com>"]
+version = "0.1.0"
