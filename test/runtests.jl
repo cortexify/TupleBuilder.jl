@@ -1,0 +1,30 @@
+using Test
+include("../src/TupleBuilder.jl")
+import Main.TupleBuilder: Tupler, build
+
+@testset "simple tuple build" begin
+    t = Tupler()
+    push!(t, 12)
+    push!(t, 34)
+    push!(t, 56)
+    tpl = build(t)
+
+    @test length(tpl) == 3
+    @test tpl[1] == 12
+    @test tpl[2] == 34
+    @test tpl[3] == 56
+end
+
+
+@testset "named tuple build" begin
+    t = Tupler()
+    push!(t, :a, 12)
+    push!(t, "b", 34)
+    push!(t, "c", 56)
+    tpl = build(t)
+
+    @test length(tpl) == 3
+    @test tpl.a == 12
+    @test tpl.b == 34
+    @test tpl.c == 56
+end
