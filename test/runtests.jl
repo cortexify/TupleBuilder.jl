@@ -28,3 +28,16 @@ end
     @test tpl.b == 34
     @test tpl.c == 56
 end
+
+@testset "constructor apguments" begin
+    t = Tupler(12)
+    push!(t, 34)
+
+    tpl = build(t)
+    @test tpl[1] == 12
+
+    tn = Tupler(:a, 12)
+
+    tpln = build(tn)
+    @test tpln.a == 12
+end

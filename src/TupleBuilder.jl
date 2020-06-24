@@ -7,6 +7,9 @@ const eq = Symbol("=")
 struct Tupler
     tuple::Expr
     Tupler() = new(Expr(:tuple))
+    Tupler(val) = push!(Tupler(), val)
+    Tupler(name::Symbol, val) = push!(Tupler(), name, val)
+    Tupler(same::String, val) = push!(Tupler(), name, val)
 end
 
 function Base.push!(t::Tupler, it)
