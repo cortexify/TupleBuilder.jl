@@ -41,3 +41,15 @@ end
     tpln = build(tn)
     @test tpln.a == 12
 end
+
+@testset "a multi-builded Tupler" begin
+    t = Tupler(12)
+    push!(t, 34)
+    tpl1 = build(t)
+    push!(t, 56)
+    push!(t, 78)
+    tpl2 = build(t)
+
+    @test length(tpl1) == 2
+    @test length(tpl2) == 4
+end
